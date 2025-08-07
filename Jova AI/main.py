@@ -13,10 +13,10 @@ import time
 
 recognizer = sr.Recognizer()
 engine = pyttsx3.init()
-newsapi = "789ae88c3f8c471ca11812a4cfc3461b"
-weather_api_key = "78097d3676618954301fcc475dcb2cdd"
+newsapi = "YOUR_NEWS_APIKEY"
+weather_api_key = "YOUR WETHER API KEY"
 
-GROQ_API_KEY = "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"
+GROQ_API_KEY = "YOUR GORQ API KEY"
 GROQ_ENDPOINT = "https://api.groq.com/openai/v1/chat/completions"
 HEADERS = {
     "Authorization": f"Bearer {GROQ_API_KEY}",
@@ -218,7 +218,7 @@ def processCommand(c):
         speak_with_mood(output)
 
 if __name__ == "__main__":
-    speak("Initializing jarvis....")
+    speak("Initializing jova....")
     while True:
         try:
             print("Listening for wake word...")
@@ -227,10 +227,10 @@ if __name__ == "__main__":
             word = recognizer.recognize_google(audio)
             print(f"Detected: {word}")
 
-            if word.lower() == "jarvis":
+            if word.lower() == "jova":
                 speak("Yes?")
                 with sr.Microphone() as source:
-                    print("jarvis is listening...")
+                    print("jova is listening...")
                     audio = recognizer.listen(source)
                     command = recognizer.recognize_google(audio)
                     print(f"Command: {command}")
@@ -242,4 +242,5 @@ if __name__ == "__main__":
             print(f"Speech service error: {e}")
         except Exception as e:
             print(f"Unexpected error: {e}")
+
 
